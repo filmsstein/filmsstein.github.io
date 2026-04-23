@@ -196,39 +196,15 @@ header {
 
 /* ADS */
 .ad-banner-728 {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  background: var(--bg2);
+  display: flex; justify-content: center; align-items: center;
+  padding: 10px; background: var(--bg2);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
-
-/* Inner wrapper controls size */
-<div class="ad-banner-728">
-  <div class="ad-inner">
-    <div class="ad-label">Advertisement</div>
-
-    <script>
-      function loadAd() {
-        let w = window.innerWidth;
-
-        if (w <= 480) {
-          atOptions = { key:'0275f496b97d4a85abe0ae2786ca291e', format:'iframe', width:320, height:50 };
-        } else if (w <= 768) {
-          atOptions = { key:'0275f496b97d4a85abe0ae2786ca291e', format:'iframe', width:468, height:60 };
-        } else {
-          atOptions = { key:'0275f496b97d4a85abe0ae2786ca291e', format:'iframe', width:728, height:90 };
-        }
-      }
-
-      loadAd();
-    </script>
-
-    <script src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></script>
-  </div>
-</div>
+.ad-banner-728 .ad-label {
+  font-size: 9px; color: var(--text3); text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 4px; text-align: center;
+}
 .ad-300 {
   background: var(--card); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 8px;
