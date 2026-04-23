@@ -196,14 +196,39 @@ header {
 
 /* ADS */
 .ad-banner-728 {
-  display: flex; justify-content: center; align-items: center;
-  padding: 10px; background: var(--bg2);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  background: var(--bg2);
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
+  overflow: visible;
 }
+
+.ad-banner-728 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 728px;
+  max-width: 100%;
+  min-height: 90px;
+  overflow: visible;
+}
+
 .ad-banner-728 .ad-label {
-  font-size: 9px; color: var(--text3); text-transform: uppercase;
-  letter-spacing: 1px; margin-bottom: 4px; text-align: center;
+  font-size: 9px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.ad-banner-728 iframe {
+  display: block;
+  max-width: 100%;
+  border: 0;
 }
 .ad-300 {
   background: var(--card); border: 1px solid var(--border);
