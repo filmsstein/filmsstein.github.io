@@ -203,20 +203,6 @@ header {
   font-size: 9px; color: var(--text3); text-transform: uppercase;
   letter-spacing: 1px; margin-bottom: 4px; text-align: center;
 }
-.ad-slot {
-  min-height: 1px;
-  contain: content;
-}
-.ad-slot-banner {
-  min-height: 90px;
-}
-.ad-slot[data-ad-kind="hpf"] {
-  display: block;
-}
-section, footer, .content-with-sidebar {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
-}
 .ad-300 {
   background: var(--card); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 8px;
@@ -786,7 +772,19 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
 
 <!-- HEADER AD 728x90 -->
 <div class="ad-banner-728">
-  <div class="ad-slot ad-slot-banner" data-ad-kind="hpf" data-ad-priority="top" data-ad-key="0275f496b97d4a85abe0ae2786ca291e" data-ad-format="iframe" data-ad-height="90" data-ad-width="728" data-ad-src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></div>
+  <div>
+    <div class="ad-label">Advertisement</div>
+    <script>
+      atOptions = {
+        'key' : '0275f496b97d4a85abe0ae2786ca291e',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></script>
+  </div>
 </div>
 
 <main>
@@ -900,7 +898,19 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
     <!-- 728x90 MID AD -->
     <div style="padding: 0 24px 24px;">
       <div class="ad-banner-728" style="border-radius:var(--radius); border:1px solid var(--border);">
-        <div class="ad-slot ad-slot-banner" data-ad-kind="hpf" data-ad-priority="low" data-ad-key="0275f496b97d4a85abe0ae2786ca291e" data-ad-format="iframe" data-ad-height="90" data-ad-width="728" data-ad-src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></div>
+        <div>
+          <div class="ad-label">Advertisement</div>
+          <script>
+            atOptions = {
+              'key' : '0275f496b97d4a85abe0ae2786ca291e',
+              'format' : 'iframe',
+              'height' : 90,
+              'width' : 728,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></script>
+        </div>
       </div>
     </div>
 
@@ -1253,11 +1263,11 @@ const SERVERS = [
     tv:   (id,s,e)   => `https://www.w2watch.to/embed/tmdb/tv-${id}-${s}-${e}` },
 ];
 
-function scheduleIdle(fn, delay = 500) {
+function scheduleIdle(fn) {
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(fn, { timeout: delay });
+    requestIdleCallback(fn, { timeout: 2000 });
   } else {
-    setTimeout(fn, delay);
+    setTimeout(fn, 500);
   }
 }
 
@@ -1333,31 +1343,22 @@ async function initApp() {
 }
 
 function initAds() {
-  const slots = Array.from(document.querySelectorAll('.ad-slot'));
-  const loaded = new WeakSet();
-  let hpfQueue = Promise.resolve();
-
   const loadSlot = (slot) => {
-    if (!slot || loaded.has(slot)) return;
-    loaded.add(slot);
+    if (!slot || slot.dataset.loaded === '1') return;
+    slot.dataset.loaded = '1';
 
     if (slot.dataset.adKind === 'hpf') {
-      hpfQueue = hpfQueue.then(() => new Promise((resolve) => {
-        window.atOptions = {
-          key: slot.dataset.adKey,
-          format: slot.dataset.adFormat || 'iframe',
-          height: Number(slot.dataset.adHeight || 0),
-          width: Number(slot.dataset.adWidth || 0),
-          params: {}
-        };
-        const s = document.createElement('script');
-        s.async = true;
-        s.src = slot.dataset.adSrc;
-        s.onload = resolve;
-        s.onerror = resolve;
-        slot.appendChild(s);
-        setTimeout(resolve, 3000);
-      }));
+      window.atOptions = {
+        key: slot.dataset.adKey,
+        format: slot.dataset.adFormat || 'iframe',
+        height: Number(slot.dataset.adHeight || 0),
+        width: Number(slot.dataset.adWidth || 0),
+        params: {}
+      };
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = slot.dataset.adSrc;
+      slot.appendChild(s);
       return;
     }
 
@@ -1373,28 +1374,8 @@ function initAds() {
     }
   };
 
-  const observeOrLoad = (slot) => {
-    const priority = slot.dataset.adPriority || 'low';
-    if (priority === 'top') {
-      scheduleIdle(() => loadSlot(slot), 1500);
-      return;
-    }
-    if (!('IntersectionObserver' in window)) {
-      scheduleIdle(() => loadSlot(slot), 2000);
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          io.unobserve(entry.target);
-          loadSlot(entry.target);
-        }
-      });
-    }, { rootMargin: '250px 0px' });
-    io.observe(slot);
-  };
-
-  slots.forEach(observeOrLoad);
+  const run = () => document.querySelectorAll('.ad-slot').forEach(loadSlot);
+  window.addEventListener('load', () => scheduleIdle(run), { once: true });
 }
 
 async function loadGenreMap() {
@@ -1429,7 +1410,7 @@ async function loadHomeData() {
     console.error('Home core load failed', err);
   }
 
-  scheduleIdle(loadHomeExtras, 900);
+  scheduleIdle(loadHomeExtras);
 }
 
 async function loadHomeExtras() {
