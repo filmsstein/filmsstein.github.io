@@ -78,7 +78,9 @@
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <link rel="dns-prefetch" href="//image.tmdb.org">
 <link rel="dns-prefetch" href="//api.themoviedb.org">
+<link rel="dns-prefetch" href="//www.highperformanceformat.com">
 <link rel="dns-prefetch" href="//arkgleamfox.com">
+<link rel="dns-prefetch" href="//pl29211317.profitablecpmratenetwork.com">
 <!-- Preconnect to critical origins -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -295,11 +297,7 @@ main { padding-top: 64px; }
 .hero-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
 
 /* SECTION */
-.section {
-  padding: 40px 24px;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 900px;
-}
+.section { padding: 40px 24px; }
 .section-header {
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 20px;
@@ -586,8 +584,6 @@ main { padding-top: 64px; }
 footer {
   background: var(--bg2); border-top: 1px solid var(--border);
   padding: 40px 24px 20px; margin-top: 40px;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 520px;
 }
 .footer-grid {
   display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px;
@@ -702,7 +698,7 @@ a, button, .card, .genre-tab, .page-btn, .server-btn, .ep-btn {
 
 /* ===== PERFORMANCE: IMAGE PLACEHOLDERS ===== */
 .card-poster { background: var(--bg3); }
-img { display: block; }
+img { content-visibility: auto; }
 
 /* ===== MOBILE: SAFE AREA SUPPORT (notch/home bar) ===== */
 header { padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
@@ -772,11 +768,20 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
 
 <!-- HEADER AD 728x90 -->
 <div class="ad-banner-728">
-    <div>
-      <div class="ad-label">Advertisement</div>
-      <div class="ad-slot" data-ad-kind="hpf" data-ad-key="0275f496b97d4a85abe0ae2786ca291e" data-ad-format="iframe" data-ad-height="90" data-ad-width="728" data-ad-src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></div>
-    </div>
+  <div>
+    <div class="ad-label">Advertisement</div>
+    <script>
+      atOptions = {
+        'key' : '0275f496b97d4a85abe0ae2786ca291e',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></script>
   </div>
+</div>
 
 <main>
 <!-- SEO: Visible content for search engine crawlers (hidden visually) -->
@@ -825,7 +830,8 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
     <div style="padding: 20px 24px 0;">
       <div class="ad-native">
         <div class="ad-label-small">Sponsored</div>
-        <div class="ad-slot" data-ad-kind="profitable" data-ad-container="container-7e673c5e00acd85e69b6341853e5be16" data-ad-src="https://pl29211317.profitablecpmratenetwork.com/7e673c5e00acd85e69b6341853e5be16/invoke.js"></div>
+        <script async="async" data-cfasync="false" src="https://pl29211317.profitablecpmratenetwork.com/7e673c5e00acd85e69b6341853e5be16/invoke.js"></script>
+        <div id="container-7e673c5e00acd85e69b6341853e5be16"></div>
       </div>
     </div>
 
@@ -851,7 +857,16 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
         <div style="flex-shrink:0;">
           <div class="ad-300">
             <div class="ad-label-small">Advertisement</div>
-            <div class="ad-slot" data-ad-kind="hpf" data-ad-key="54475c003373ef5f1e98e24b2ad8b4e5" data-ad-format="iframe" data-ad-height="250" data-ad-width="300" data-ad-src="https://www.highperformanceformat.com/54475c003373ef5f1e98e24b2ad8b4e5/invoke.js"></div>
+            <script>
+              atOptions = {
+                'key' : '54475c003373ef5f1e98e24b2ad8b4e5',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/54475c003373ef5f1e98e24b2ad8b4e5/invoke.js"></script>
           </div>
         </div>
       </div>
@@ -891,7 +906,16 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
       <div class="ad-banner-728" style="border-radius:var(--radius); border:1px solid var(--border);">
         <div>
           <div class="ad-label">Advertisement</div>
-          <div class="ad-slot" data-ad-kind="hpf" data-ad-key="0275f496b97d4a85abe0ae2786ca291e" data-ad-format="iframe" data-ad-height="90" data-ad-width="728" data-ad-src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></div>
+          <script>
+            atOptions = {
+              'key' : '0275f496b97d4a85abe0ae2786ca291e',
+              'format' : 'iframe',
+              'height' : 90,
+              'width' : 728,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/0275f496b97d4a85abe0ae2786ca291e/invoke.js"></script>
         </div>
       </div>
     </div>
@@ -1000,7 +1024,8 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
     <div style="padding: 0 0 24px;">
       <div class="ad-native">
         <div class="ad-label-small">Sponsored</div>
-        <div class="ad-slot" data-ad-kind="profitable" data-ad-container="container-7e673c5e00acd85e69b6341853e5be16-footer" data-ad-src="https://pl29211317.profitablecpmratenetwork.com/7e673c5e00acd85e69b6341853e5be16/invoke.js"></div>
+        <script async="async" data-cfasync="false" src="https://pl29211317.profitablecpmratenetwork.com/7e673c5e00acd85e69b6341853e5be16/invoke.js"></script>
+        <div id="container-7e673c5e00acd85e69b6341853e5be16-footer"></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1055,7 +1080,16 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
       <div class="ad-banner-728" style="border-radius:var(--radius-sm);margin-bottom:16px;">
         <div>
           <div class="ad-label">Advertisement</div>
-          <div class="ad-slot" data-ad-kind="hpf" data-ad-key="54475c003373ef5f1e98e24b2ad8b4e5" data-ad-format="iframe" data-ad-height="250" data-ad-width="300" data-ad-src="https://www.highperformanceformat.com/54475c003373ef5f1e98e24b2ad8b4e5/invoke.js"></div>
+          <script>
+            atOptions = {
+              'key' : '54475c003373ef5f1e98e24b2ad8b4e5',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/54475c003373ef5f1e98e24b2ad8b4e5/invoke.js"></script>
         </div>
       </div>
 
@@ -1084,14 +1118,9 @@ footer { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
 <div class="toast" id="toast"></div>
 
 <script>
-
 const TMDB_KEY = '77343dee663fa8fa27239bc2be21d4d9';
 const TMDB = 'https://api.themoviedb.org/3';
 const IMG = 'https://image.tmdb.org/t/p/';
-
-const CACHE_TTL = 6 * 60 * 60 * 1000;
-const cardStore = new Map();
-let cardSeq = 0;
 
 let heroItems = [], heroIdx = 0, heroTimer = null;
 let currentItem = null, currentSeason = 1, currentEpisode = 1;
@@ -1245,289 +1274,111 @@ const SERVERS = [
     tv:   (id,s,e)   => `https://www.w2watch.to/embed/tmdb/tv-${id}-${s}-${e}` },
 ];
 
-function scheduleIdle(fn) {
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(fn, { timeout: 2000 });
-  } else {
-    setTimeout(fn, 500);
-  }
-}
-
-function cacheKey(path, params = {}) {
-  const query = Object.keys(params).sort().map(k => `${k}=${params[k]}`).join('&');
-  return `tmdb:${path}${query ? '?' + query : ''}`;
-}
-
-function getCache(key) {
-  try {
-    const raw = localStorage.getItem(key);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (!parsed || !parsed.t || Date.now() - parsed.t > CACHE_TTL) return null;
-    return parsed.d;
-  } catch {
-    return null;
-  }
-}
-
-function setCache(key, data) {
-  try {
-    localStorage.setItem(key, JSON.stringify({ t: Date.now(), d: data }));
-  } catch {}
-}
-
-function escapeAttr(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/'/g, '&#39;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  setupGlobalEvents();
+// =========== INIT ===========
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadGenreMap();
+  loadHomeData();
   setupSearch();
   buildCategoryGenreTabs();
-  initAds();
-  initApp();
 });
 
-function setupGlobalEvents() {
-  document.addEventListener('click', (e) => {
-    const card = e.target.closest('.card[data-card-id]');
-    if (card) {
-      const ref = cardStore.get(card.dataset.cardId);
-      if (ref) openModal(ref.item, ref.type);
-      return;
-    }
-    const dot = e.target.closest('.hero-dot');
-    if (dot) {
-      goHero(Number(dot.dataset.index));
-      return;
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-    const card = e.target.closest?.('.card[data-card-id]');
-    if (card && (e.key === 'Enter' || e.key === ' ')) {
-      e.preventDefault();
-      const ref = cardStore.get(card.dataset.cardId);
-      if (ref) openModal(ref.item, ref.type);
-    }
-  });
-}
-
-async function initApp() {
-  await loadGenreMap();
-  await loadHomeData();
-}
-
-function initAds() {
-  const loadSlot = (slot) => {
-    if (!slot || slot.dataset.loaded === '1') return;
-    slot.dataset.loaded = '1';
-
-    if (slot.dataset.adKind === 'hpf') {
-      window.atOptions = {
-        key: slot.dataset.adKey,
-        format: slot.dataset.adFormat || 'iframe',
-        height: Number(slot.dataset.adHeight || 0),
-        width: Number(slot.dataset.adWidth || 0),
-        params: {}
-      };
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = slot.dataset.adSrc;
-      slot.appendChild(s);
-      return;
-    }
-
-    if (slot.dataset.adKind === 'profitable') {
-      const c = document.createElement('div');
-      c.id = slot.dataset.adContainer;
-      slot.appendChild(c);
-      const s = document.createElement('script');
-      s.async = true;
-      s.dataset.cfasync = 'false';
-      s.src = slot.dataset.adSrc;
-      slot.appendChild(s);
-    }
-  };
-
-  const run = () => document.querySelectorAll('.ad-slot').forEach(loadSlot);
-  window.addEventListener('load', () => scheduleIdle(run), { once: true });
-}
-
 async function loadGenreMap() {
-  const cached = getCache('tmdb:genre-map');
-  if (cached) {
-    genreMap = cached;
-    return;
-  }
   const [mg, tg] = await Promise.all([
-    fetchTMDB('/genre/movie/list'),
-    fetchTMDB('/genre/tv/list')
+    fetchTMDB('/genre/movie/list'), fetchTMDB('/genre/tv/list')
   ]);
-  [...(mg.genres || []), ...(tg.genres || [])].forEach(g => genreMap[g.id] = g.name);
-  setCache('tmdb:genre-map', genreMap);
+  [...(mg.genres||[]), ...(tg.genres||[])].forEach(g => genreMap[g.id] = g.name);
 }
 
 async function loadHomeData() {
-  const core = getCache('tmdb:home-core');
-  const extras = getCache('tmdb:home-extras');
-  if (core) renderHomeCore(core);
-  if (extras) renderHomeExtras(extras);
-
-  try {
-    const [trending, popMovies] = await Promise.all([
-      fetchTMDB('/trending/all/week'),
-      fetchTMDB('/movie/popular'),
-    ]);
-    const coreData = { trending, popMovies };
-    renderHomeCore(coreData);
-    setCache('tmdb:home-core', coreData);
-  } catch (err) {
-    console.error('Home core load failed', err);
-  }
-
-  scheduleIdle(loadHomeExtras);
-}
-
-async function loadHomeExtras() {
-  try {
-    const [topSeries, nowPlaying, upcoming, airingToday] = await Promise.all([
-      fetchTMDB('/tv/top_rated'),
-      fetchTMDB('/movie/now_playing'),
-      fetchTMDB('/movie/upcoming'),
-      fetchTMDB('/tv/airing_today'),
-    ]);
-    const extras = { topSeries, nowPlaying, upcoming, airingToday };
-    renderHomeExtras(extras);
-    setCache('tmdb:home-extras', extras);
-    buildGenreTabs();
-  } catch (err) {
-    console.error('Home extras load failed', err);
-  }
-}
-
-function renderHomeCore({ trending, popMovies }) {
-  heroItems = (trending?.results || []).filter(i => i.backdrop_path).slice(0, 8);
+  const [trending, popMovies, topSeries, nowPlaying, upcoming, airingToday] = await Promise.all([
+    fetchTMDB('/trending/all/week'),
+    fetchTMDB('/movie/popular'),
+    fetchTMDB('/tv/top_rated'),
+    fetchTMDB('/movie/now_playing'),
+    fetchTMDB('/movie/upcoming'),
+    fetchTMDB('/tv/airing_today'),
+  ]);
+  heroItems = (trending.results||[]).slice(0,8).filter(i => i.backdrop_path);
   setupHero();
-  renderRow('trendingRow', trending?.results || [], 'all');
-  renderRow('popularMoviesRow', popMovies?.results || [], 'movie');
+  renderRow('trendingRow', trending.results||[], 'all');
+  renderRow('popularMoviesRow', popMovies.results||[], 'movie');
+  renderRow('topSeriesRow', topSeries.results||[], 'tv');
+  renderRow('nowPlayingRow', nowPlaying.results||[], 'movie');
+  renderRow('upcomingRow', upcoming.results||[], 'movie');
+  renderRow('newEpisodesRow', airingToday.results||[], 'tv');
+  buildGenreTabs();
 }
 
-function renderHomeExtras({ topSeries, nowPlaying, upcoming, airingToday }) {
-  renderRow('topSeriesRow', topSeries?.results || [], 'tv');
-  renderRow('nowPlayingRow', nowPlaying?.results || [], 'movie');
-  renderRow('upcomingRow', upcoming?.results || [], 'movie');
-  renderRow('newEpisodesRow', airingToday?.results || [], 'tv');
-}
-
+// =========== HERO ===========
 function setupHero() {
   if (!heroItems.length) return;
   renderHero(0);
   const dots = document.getElementById('heroDots');
   dots.innerHTML = heroItems.map((_, i) =>
-    `<button class="hero-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Go to featured item ${i + 1}"></button>`
-  ).join('');
+    `<button class="hero-dot ${i===0?'active':''}" onclick="goHero(${i})"></button>`).join('');
   clearInterval(heroTimer);
-  heroTimer = setInterval(() => goHero((heroIdx + 1) % heroItems.length), 7000);
+  heroTimer = setInterval(() => goHero((heroIdx+1) % heroItems.length), 7000);
 }
-
 function goHero(i) {
   heroIdx = i;
   renderHero(i);
-  document.querySelectorAll('.hero-dot').forEach((d, j) => d.classList.toggle('active', j === i));
+  document.querySelectorAll('.hero-dot').forEach((d,j) => d.classList.toggle('active', j===i));
 }
-
 function renderHero(i) {
   const item = heroItems[i];
-  if (!item) return;
-  const bg = `${IMG}w1280${item.backdrop_path}`;
-  const pre = new Image();
-  pre.decoding = 'async';
-  pre.fetchPriority = 'high';
-  pre.src = bg;
-  pre.onload = () => {
-    document.getElementById('heroBg').style.backgroundImage = `url(${bg})`;
-  };
-  document.getElementById('heroTitle').textContent = item.title || item.name || '';
-  document.getElementById('heroRating').innerHTML = `<i class="fas fa-star"></i> ${item.vote_average?.toFixed(1) || 'N/A'}`;
-  document.getElementById('heroYear').textContent = (item.release_date || item.first_air_date || '').slice(0, 4);
-  document.getElementById('heroDesc').textContent = item.overview || '';
+  document.getElementById('heroBg').style.backgroundImage = `url(${IMG}original${item.backdrop_path})`;
+  document.getElementById('heroTitle').textContent = item.title || item.name;
+  document.getElementById('heroRating').innerHTML = `<i class="fas fa-star"></i> ${item.vote_average?.toFixed(1)||'N/A'}`;
+  document.getElementById('heroYear').textContent = (item.release_date||item.first_air_date||'').slice(0,4);
+  document.getElementById('heroDesc').textContent = item.overview;
   currentItem = item;
 }
-
 function playHero() { openModal(heroItems[heroIdx]); }
 function openHeroModal() { openModal(heroItems[heroIdx]); }
 
-async function fetchTMDB(path, params = {}) {
-  const key = cacheKey(path, params);
-  const cached = getCache(key);
-  if (cached) return cached;
-
+// =========== FETCH ===========
+async function fetchTMDB(path, params={}) {
   const url = new URL(TMDB + path);
   url.searchParams.set('api_key', TMDB_KEY);
-  Object.keys(params).sort().forEach(k => url.searchParams.set(k, params[k]));
-  const r = await fetch(url, { credentials: 'omit' });
-  if (!r.ok) throw new Error(`TMDB request failed: ${r.status}`);
-  const data = await r.json();
-  setCache(key, data);
-  return data;
+  Object.entries(params).forEach(([k,v]) => url.searchParams.set(k,v));
+  const r = await fetch(url); return r.json();
 }
 
+// =========== RENDER ROW ===========
 function renderRow(id, items, type) {
   const el = document.getElementById(id);
   if (!el) return;
   el.innerHTML = items.map(item => cardHTML(item, type)).join('');
 }
 
-function storeCard(item, type) {
-  const id = String(++cardSeq);
-  cardStore.set(id, { item, type });
-  return id;
-}
-
 function cardHTML(item, type) {
-  const mt = type === 'all' ? (item.media_type || 'movie') : type;
+  const mt = type === 'all' ? (item.media_type||'movie') : type;
   const title = item.title || item.name || '';
-  const year = (item.release_date || item.first_air_date || '').slice(0, 4);
-  const rating = item.vote_average?.toFixed(1) || '';
+  const year = (item.release_date||item.first_air_date||'').slice(0,4);
+  const rating = item.vote_average?.toFixed(1)||'';
   const poster = item.poster_path ? `${IMG}w342${item.poster_path}` : 'https://via.placeholder.com/342x513/141c2e/4a566b?text=No+Image';
-  const cardId = storeCard(item, mt);
-
-  return `<article class="card" role="button" tabindex="0" data-card-id="${cardId}" aria-label="${escapeAttr(title || 'Open title')}">
+  return `<div class="card" onclick="openModal(${JSON.stringify(item).replace(/"/g,'&quot;')}, '${mt}')">
     <div class="card-poster">
-      <img src="${poster}" alt="${escapeAttr(title)}" loading="lazy" decoding="async" width="342" height="513">
+      <img src="${poster}" alt="${title}" loading="lazy" decoding="async" width="342" height="513">
       <div class="card-overlay">
-        <button class="card-play" type="button"><i class="fas fa-play"></i></button>
+        <button class="card-play"><i class="fas fa-play"></i></button>
       </div>
-      ${mt === 'tv' ? '<span class="card-badge">SERIES</span>' : ''}
-      ${rating ? `<span class="card-rating"><i class="fas fa-star"></i>${rating}</span>` : ''}
+      ${mt==='tv'?'<span class="card-badge">SERIES</span>':''}
+      ${rating?`<span class="card-rating"><i class="fas fa-star"></i>${rating}</span>`:''}
     </div>
     <div class="card-info">
-      <div class="card-title">${escapeAttr(title)}</div>
+      <div class="card-title">${title}</div>
       <div class="card-meta"><span>${year}</span><span style="color:var(--accent)">HD</span></div>
     </div>
-  </article>`;
+  </div>`;
 }
 
-function buildServerHtml(server, active, id, type) {
-  return `<button class="server-btn ${active ? 'active' : ''}" onclick="selectServer(this,'${server.id}',${id},'${type}')">
-    <i class="${server.icon}"></i> ${server.name}
-  </button>`;
-}
-
+// =========== MODAL ===========
 async function openModal(item, forceType) {
-  if (!item) return;
   const mt = forceType || item.media_type || currentMediaType;
   currentMediaType = mt;
   currentItem = item;
-  currentSeason = 1;
-  currentEpisode = 1;
+  currentSeason = 1; currentEpisode = 1;
 
   document.getElementById('modalBg').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1537,20 +1388,22 @@ async function openModal(item, forceType) {
 
   document.getElementById('modalBackdrop').src = backdrop;
   document.getElementById('modalPoster').src = poster;
-  document.getElementById('modalTitle').textContent = item.title || item.name || '';
+  document.getElementById('modalTitle').textContent = item.title||item.name||'';
   document.getElementById('playerWrapper').innerHTML = `<div class="player-placeholder"><i class="fas fa-play-circle" style="color:var(--accent)"></i><p style="font-size:14px">Select a server to start watching</p></div>`;
 
-  const genres = (item.genre_ids || []).map(id => `<span class="genre-chip" onclick="searchByGenre(${id},'${escapeAttr(genreMap[id] || '')}','${mt}')">${escapeAttr(genreMap[id] || '')}</span>`).join('');
+  const genres = (item.genre_ids||[]).map(id => `<span class="genre-chip" onclick="searchByGenre(${id},'${genreMap[id]||''}','${mt}')">${genreMap[id]||''}</span>`).join('');
   document.getElementById('modalGenres').innerHTML = genres;
 
-  document.getElementById('modalMeta').innerHTML = `
-    <span class="modal-tag accent">${mt === 'tv' ? 'TV SERIES' : 'MOVIE'}</span>
-    <span class="modal-tag gold"><i class="fas fa-star"></i> ${item.vote_average?.toFixed(1) || 'N/A'}</span>
-    <span class="modal-tag">${(item.release_date || item.first_air_date || '').slice(0, 4) || 'N/A'}</span>
+  const meta = `
+    <span class="modal-tag accent">${mt==='tv'?'TV SERIES':'MOVIE'}</span>
+    <span class="modal-tag gold"><i class="fas fa-star"></i> ${item.vote_average?.toFixed(1)||'N/A'}</span>
+    <span class="modal-tag">${(item.release_date||item.first_air_date||'').slice(0,4)||'N/A'}</span>
     <span class="modal-tag" style="color:var(--accent);">HD</span>
   `;
-  document.getElementById('modalOverview').textContent = item.overview || 'No description available.';
+  document.getElementById('modalMeta').innerHTML = meta;
+  document.getElementById('modalOverview').textContent = item.overview||'No description available.';
 
+  // TV controls
   if (mt === 'tv') {
     document.getElementById('tvControls').style.display = 'block';
     await loadSeasons(item.id);
@@ -1559,13 +1412,18 @@ async function openModal(item, forceType) {
   }
 
   buildServers(item.id, mt);
-  buildDownloadOptions(item.id, mt, item.title || item.name);
+  buildDownloadOptions(item.id, mt, item.title||item.name);
   loadCast(item.id, mt);
 }
 
 function buildServers(id, type) {
   const row = document.getElementById('serversRow');
-  row.innerHTML = SERVERS.map((s, i) => buildServerHtml(s, i === 0, id, type)).join('');
+  row.innerHTML = SERVERS.map((s,i) => `
+    <button class="server-btn ${i===0?'active':''}" onclick="selectServer(this,'${s.id}',${id},'${type}')">
+      <i class="${s.icon}"></i> ${s.name}
+    </button>
+  `).join('');
+  // Auto-load first server
   loadPlayer(id, type, SERVERS[0].id);
 }
 
@@ -1578,21 +1436,28 @@ function selectServer(btn, serverId, id, type) {
 function loadPlayer(id, type, serverId) {
   const server = SERVERS.find(s => s.id === serverId);
   if (!server) return;
-  const url = type === 'tv'
-    ? server.tv(id, currentSeason, currentEpisode)
-    : server.movie(id);
-
+  let url;
+  if (type === 'tv') {
+    url = server.tv(id, currentSeason, currentEpisode);
+  } else {
+    url = server.movie(id);
+  }
   document.getElementById('playerWrapper').innerHTML =
     `<iframe src="${url}" allowfullscreen allow="autoplay; encrypted-media; fullscreen; picture-in-picture" scrolling="no" referrerpolicy="no-referrer"></iframe>`;
   showToast(`Playing on ${server.name}...`);
 }
 
 function buildDownloadOptions(id, type, title) {
+  const vidsrc = type === 'tv'
+    ? `https://vidsrc.to/embed/tv/${id}/${currentSeason}/${currentEpisode}`
+    : `https://vidsrc.to/embed/movie/${id}`;
+
+  const opts = ['1080p', '720p', '480p'];
   document.getElementById('downloadOptions').innerHTML = `
-    <button class="btn-download" onclick="downloadContent(${id},'${type}','${escapeAttr(title || '')}')">
+    <button class="btn-download" onclick="downloadContent(${id},'${type}','${(title||'').replace(/'/g,'')}')">
       <i class="fas fa-download"></i> Download
     </button>
-    ${['1080p', '720p', '480p'].map(q => `<button class="dl-quality" onclick="downloadQuality('${q}',${id},'${type}','${escapeAttr(title || '')}')">
+    ${opts.map(q => `<button class="dl-quality" onclick="downloadQuality('${q}',${id},'${type}','${(title||'').replace(/'/g,'')}')">
       <i class="fas fa-film"></i> ${q}
     </button>`).join('')}
   `;
@@ -1603,7 +1468,7 @@ function downloadContent(id, type, title) {
   const url = type === 'tv'
     ? `https://dl.vidsrc.vip/tv/${id}/${currentSeason}/${currentEpisode}`
     : `https://dl.vidsrc.vip/movie/${id}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
+  window.open(url, '_blank');
 }
 
 function downloadQuality(q, id, type, title) {
@@ -1613,22 +1478,21 @@ function downloadQuality(q, id, type, title) {
 
 async function loadSeasons(tvId) {
   const data = await fetchTMDB(`/tv/${tvId}`);
-  const seasons = (data.seasons || []).filter(s => s.season_number > 0);
+  const seasons = (data.seasons||[]).filter(s => s.season_number > 0);
   const sel = document.getElementById('seasonSelect');
   sel.innerHTML = seasons.map(s => `<option value="${s.season_number}">Season ${s.season_number} (${s.episode_count} eps)</option>`).join('');
   loadEpisodes();
 }
 
 async function loadEpisodes() {
-  currentSeason = parseInt(document.getElementById('seasonSelect').value, 10);
+  currentSeason = parseInt(document.getElementById('seasonSelect').value);
   currentEpisode = 1;
   const data = await fetchTMDB(`/tv/${currentItem.id}/season/${currentSeason}`);
   const eps = data.episodes || [];
   document.getElementById('episodesGrid').innerHTML = eps.map(e =>
-    `<button class="ep-btn ${e.episode_number === 1 ? 'active' : ''}" onclick="selectEpisode(this,${e.episode_number})">
+    `<button class="ep-btn ${e.episode_number===1?'active':''}" onclick="selectEpisode(this,${e.episode_number})">
       Ep ${e.episode_number}
-    </button>`
-  ).join('');
+    </button>`).join('');
   reloadPlayerIfActive();
 }
 
@@ -1649,22 +1513,20 @@ function reloadPlayerIfActive() {
 
 async function loadCast(id, type) {
   const data = await fetchTMDB(`/${type}/${id}/credits`);
-  const cast = (data.cast || []).slice(0, 12);
-  const el = document.getElementById('castSection');
-  const row = document.getElementById('castRow');
+  const cast = (data.cast||[]).slice(0,12);
   if (cast.length) {
-    el.style.display = 'block';
-    row.innerHTML = cast.map(c => `
+    document.getElementById('castSection').style.display = 'block';
+    document.getElementById('castRow').innerHTML = cast.map(c => `
       <div class="cast-card">
         <div class="cast-avatar">
-          <img src="${c.profile_path ? IMG + 'w185' + c.profile_path : 'https://via.placeholder.com/70x70/141c2e/4a566b?text=?'}" alt="${escapeAttr(c.name)}" loading="lazy" decoding="async" width="70" height="70">
+          <img src="${c.profile_path ? IMG+'w185'+c.profile_path : 'https://via.placeholder.com/70x70/141c2e/4a566b?text=?'}" alt="${c.name}" loading="lazy" decoding="async" width="70" height="70">
         </div>
-        <div class="cast-name">${escapeAttr(c.name)}</div>
-        <div class="cast-char">${escapeAttr((c.character || '').slice(0, 16))}</div>
+        <div class="cast-name">${c.name}</div>
+        <div class="cast-char">${(c.character||'').slice(0,16)}</div>
       </div>
     `).join('');
   } else {
-    el.style.display = 'none';
+    document.getElementById('castSection').style.display = 'none';
   }
 }
 
@@ -1673,18 +1535,16 @@ function closeModal() {
   document.body.style.overflow = '';
   document.getElementById('playerWrapper').innerHTML = `<div class="player-placeholder"><i class="fas fa-play-circle" style="color:var(--accent)"></i><p>Select a server to start watching</p></div>`;
 }
+function closeModalIfBg(e) { if (e.target === document.getElementById('modalBg')) closeModal(); }
 
-function closeModalIfBg(e) {
-  if (e.target === document.getElementById('modalBg')) closeModal();
-}
-
-async function loadCategory(type, label, genre = null, page = 1) {
-  categoryType = type;
-  categoryPage = page;
-  document.getElementById('categoryBreadcrumb').textContent = `${type === 'movie' ? 'Movies' : 'TV Series'} – ${label}`;
+// =========== CATEGORIES ===========
+async function loadCategory(type, label, genre=null, page=1) {
+  categoryType = type; categoryPage = page;
+  document.getElementById('categoryBreadcrumb').textContent = `${type==='movie'?'Movies':'TV Series'} – ${label}`;
   document.getElementById('categoryTitle').textContent = label;
   document.getElementById('categoryGrid').innerHTML = '<div class="spinner"></div>';
 
+  let endpoint;
   const endpoints = {
     'Popular': `/${type}/popular`,
     'Top Rated': `/${type}/top_rated`,
@@ -1693,7 +1553,7 @@ async function loadCategory(type, label, genre = null, page = 1) {
     'Airing Today': '/tv/airing_today',
     'On The Air': '/tv/on_the_air',
   };
-  const endpoint = endpoints[label] || `/${type}/popular`;
+  endpoint = endpoints[label] || `/${type}/popular`;
 
   let data;
   if (genre) {
@@ -1703,24 +1563,25 @@ async function loadCategory(type, label, genre = null, page = 1) {
   }
   categoryEndpoint = endpoint;
 
-  document.getElementById('categoryGrid').innerHTML = (data.results || []).map(item => cardHTML(item, type)).join('');
-  buildPagination('categoryPagination', data.total_pages || 1, page, p => loadCategory(type, label, genre, p));
+  const grid = document.getElementById('categoryGrid');
+  grid.innerHTML = (data.results||[]).map(item => cardHTML(item, type)).join('');
+  buildPagination('categoryPagination', data.total_pages||1, page, p => loadCategory(type, label, genre, p));
 }
 
 function buildPagination(id, total, current, cb) {
   const el = document.getElementById(id);
   if (!el) return;
   total = Math.min(total, 20);
-  const pages = [];
+  let pages = [];
   const w = 2;
   for (let i = 1; i <= total; i++) {
-    if (i === 1 || i === total || Math.abs(i - current) <= w) pages.push(i);
-    else if (Math.abs(i - current) === w + 1) pages.push('...');
+    if (i===1||i===total||Math.abs(i-current)<=w) pages.push(i);
+    else if (Math.abs(i-current)===w+1) pages.push('...');
   }
   const unique = [...new Set(pages)];
-  el.innerHTML = unique.map(p => p === '...'
+  el.innerHTML = unique.map(p => p==='...'
     ? `<span style="color:var(--text3);padding:0 4px;">...</span>`
-    : `<button class="page-btn ${p === current ? 'active' : ''}" onclick="(${cb})(${p})">${p}</button>`
+    : `<button class="page-btn ${p===current?'active':''}" onclick="(${cb})(${p})">${p}</button>`
   ).join('');
 }
 
@@ -1729,13 +1590,14 @@ function buildCategoryGenreTabs() {
   if (!tabs) return;
 }
 
+// =========== GENRE ===========
 async function buildGenreTabs() {
   const data = await fetchTMDB('/genre/movie/list');
-  const genres = (data.genres || []).slice(0, 12);
+  const genres = (data.genres||[]).slice(0,12);
   const tabs = document.getElementById('genreTabs');
   if (!tabs) return;
-  tabs.innerHTML = genres.map((g, i) =>
-    `<button class="genre-tab ${i === 0 ? 'active' : ''}" onclick="loadGenreGrid(${g.id},'movie',this)">${escapeAttr(g.name)}</button>`
+  tabs.innerHTML = genres.map((g,i) =>
+    `<button class="genre-tab ${i===0?'active':''}" onclick="loadGenreGrid(${g.id},'movie',this)">${g.name}</button>`
   ).join('');
   if (genres[0]) loadGenreGrid(genres[0].id, 'movie', tabs.firstElementChild);
 }
@@ -1745,7 +1607,7 @@ async function loadGenreGrid(genreId, type, btn) {
   btn?.classList.add('active');
   document.getElementById('genreGrid').innerHTML = '<div class="spinner"></div>';
   const data = await fetchTMDB(`/discover/${type}`, { with_genres: genreId });
-  document.getElementById('genreGrid').innerHTML = (data.results || []).map(i => cardHTML(i, type)).join('');
+  document.getElementById('genreGrid').innerHTML = (data.results||[]).map(i => cardHTML(i, type)).join('');
 }
 
 function loadGenreFilter() {
@@ -1755,33 +1617,33 @@ function loadGenreFilter() {
 
 function searchByGenre(genreId, name, type) {
   closeModal();
-  loadCategory(type || 'movie', name, genreId);
+  loadCategory(type||'movie', name, genreId);
   showPage('category');
 }
 
+// =========== TRENDING PAGE ===========
 async function loadTrendingPage() {
   await loadTrendingType('all', 'week');
 }
-
 async function loadTrendingType(type, window, btn) {
   document.querySelectorAll('#page-trending .genre-tab').forEach(t => t.classList.remove('active'));
   btn?.classList.add('active');
   document.getElementById('trendingGrid').innerHTML = '<div class="spinner"></div>';
   const data = await fetchTMDB(`/trending/${type}/${window}`);
-  const mt = type === 'all' ? null : type;
-  document.getElementById('trendingGrid').innerHTML = (data.results || []).map(i => cardHTML(i, mt || i.media_type || 'movie')).join('');
+  const mt = type==='all' ? null : type;
+  document.getElementById('trendingGrid').innerHTML = (data.results||[]).map(i => cardHTML(i, mt||i.media_type||'movie')).join('');
 }
 
+// =========== SEARCH ===========
 function setupSearch() {
   let timer;
-  const input = document.getElementById('searchInput');
-  input.addEventListener('input', e => {
+  document.getElementById('searchInput').addEventListener('input', e => {
     clearTimeout(timer);
     const q = e.target.value.trim();
     if (q.length < 2) return;
-    timer = setTimeout(() => runSearch(q), 400);
+    timer = setTimeout(() => runSearch(q), 500);
   });
-  input.addEventListener('keydown', e => {
+  document.getElementById('searchInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') {
       clearTimeout(timer);
       runSearch(e.target.value.trim());
@@ -1789,19 +1651,20 @@ function setupSearch() {
   });
 }
 
-async function runSearch(q, page = 1) {
+async function runSearch(q, page=1) {
   if (!q) return;
   showPage('search');
   document.getElementById('searchQuery').textContent = `"${q}"`;
   document.getElementById('searchGrid').innerHTML = '<div class="spinner"></div>';
   const data = await fetchTMDB('/search/multi', { query: q, page });
-  const results = (data.results || []).filter(i => i.media_type !== 'person');
+  const results = (data.results||[]).filter(i => i.media_type !== 'person');
   document.getElementById('searchGrid').innerHTML = results.length
-    ? results.map(i => cardHTML(i, i.media_type || 'movie')).join('')
+    ? results.map(i => cardHTML(i, i.media_type||'movie')).join('')
     : '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text3)"><i class="fas fa-search" style="font-size:48px;margin-bottom:16px;display:block"></i>No results found for this query.</div>';
-  buildPagination('searchPagination', data.total_pages || 1, page, p => runSearch(q, p));
+  buildPagination('searchPagination', data.total_pages||1, page, p => runSearch(q, p));
 }
 
+// =========== PAGES ===========
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const pg = document.getElementById(`page-${name}`);
@@ -1814,6 +1677,7 @@ function setActive(el) {
   el.classList.add('active');
 }
 
+// =========== MOBILE NAV ===========
 function toggleMobileNav() {
   document.getElementById('mobileNav').classList.toggle('open');
 }
@@ -1821,13 +1685,13 @@ function closeMobileNav() {
   document.getElementById('mobileNav').classList.remove('open');
 }
 
+// =========== TOAST ===========
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 1800);
+  setTimeout(() => t.classList.remove('show'), 2500);
 }
-
 </script>
 </body>
 </html>
