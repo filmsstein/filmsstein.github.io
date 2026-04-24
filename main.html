@@ -514,9 +514,7 @@ main { padding-top: 64px; }
   font-size: 12px; font-weight: 600; color: var(--text3); letter-spacing: 1px;
   text-transform: uppercase; margin-bottom: 10px;
 }
-.servers-row { display: flex; flex-wrap: wrap; gap: 8px; max-height: 240px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
-.servers-row::-webkit-scrollbar { width: 4px; }
-.servers-row::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.servers-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .server-btn {
   display: flex; align-items: center; gap: 6px;
   padding: 8px 16px; border-radius: var(--radius-sm);
@@ -1129,149 +1127,21 @@ let genreMap = {};
 let categoryPage = 1, categoryType = 'movie', categoryEndpoint = 'popular';
 
 const SERVERS = [
-  // ── Tier 1 – Most Reliable ──────────────────────────────────────────────
-  { name: 'VidSrc',       icon: 'fas fa-play',              id: 'vidsrc',
-    movie: id        => `https://vidsrc.to/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidsrc.to/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'VidSrc Pro',   icon: 'fas fa-star',              id: 'vidsrcpro',
-    movie: id        => `https://vidsrc.xyz/embed/movie?tmdb=${id}`,
-    tv:   (id,s,e)   => `https://vidsrc.xyz/embed/tv?tmdb=${id}&season=${s}&episode=${e}` },
-
-  { name: 'VidSrc.me',    icon: 'fas fa-circle-play',       id: 'vidsrcme',
-    movie: id        => `https://vidsrc.me/embed/movie?tmdb=${id}`,
-    tv:   (id,s,e)   => `https://vidsrc.me/embed/tv?tmdb=${id}&season=${s}&episode=${e}` },
-
-  { name: 'VidLink',      icon: 'fas fa-link',              id: 'vidlink',
-    movie: id        => `https://vidlink.pro/movie/${id}?autoplay=true`,
-    tv:   (id,s,e)   => `https://vidlink.pro/tv/${id}/${s}/${e}?autoplay=true` },
-
-  { name: 'Embed.su',     icon: 'fas fa-globe',             id: 'embedsu',
-    movie: id        => `https://embed.su/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://embed.su/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'AutoEmbed',    icon: 'fas fa-robot',             id: 'autoembed',
-    movie: id        => `https://autoembed.cc/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://autoembed.cc/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'MultiEmbed',   icon: 'fas fa-layer-group',       id: 'multiembed',
-    movie: id        => `https://multiembed.mov/?video_id=${id}&tmdb=1`,
-    tv:   (id,s,e)   => `https://multiembed.mov/?video_id=${id}&tmdb=1&s=${s}&e=${e}` },
-
-  // ── Tier 2 – Fast & Stable ──────────────────────────────────────────────
-  { name: '2Embed',       icon: 'fas fa-film',              id: '2embed',
-    movie: id        => `https://www.2embed.cc/embed/${id}`,
-    tv:   (id,s,e)   => `https://www.2embed.cc/embedtv/${id}&s=${s}&e=${e}` },
-
-  { name: 'MoviesAPI',    icon: 'fas fa-clapperboard',      id: 'moviesapi',
-    movie: id        => `https://moviesapi.club/movie/${id}-1`,
-    tv:   (id,s,e)   => `https://moviesapi.club/tv/${id}-${s}-${e}` },
-
-  { name: 'Videasy',      icon: 'fas fa-video',             id: 'videasy',
-    movie: id        => `https://player.videasy.net/movie/${id}`,
-    tv:   (id,s,e)   => `https://player.videasy.net/tv/${id}/${s}/${e}` },
-
-  { name: 'SmashyStream', icon: 'fas fa-bolt',              id: 'smashystream',
-    movie: id        => `https://embed.smashystream.com/playere.php?movie=${id}`,
-    tv:   (id,s,e)   => `https://embed.smashystream.com/playere.php?tv=${id}&s=${s}&e=${e}` },
-
-  { name: 'PlayerSmashy', icon: 'fas fa-hammer',            id: 'playersmashy',
-    movie: id        => `https://player.smashy.stream/movie/${id}`,
-    tv:   (id,s,e)   => `https://player.smashy.stream/tv/${id}?s=${s}&e=${e}` },
-
-  { name: 'RiveEmbed',    icon: 'fas fa-water',             id: 'riveembed',
-    movie: id        => `https://riveembed.xyz/embed/movie?id=${id}`,
-    tv:   (id,s,e)   => `https://riveembed.xyz/embed/tv?id=${id}&season=${s}&episode=${e}` },
-
-  { name: 'WarezCDN',     icon: 'fas fa-server',            id: 'warezcdn',
-    movie: id        => `https://embed.warezcdn.com/filme/${id}`,
-    tv:   (id,s,e)   => `https://embed.warezcdn.com/serie/${id}/${s}/${e}` },
-
-  // ── Tier 3 – User Requested ─────────────────────────────────────────────
-  { name: 'VidZee',       icon: 'fas fa-z',                 id: 'vidzee',
-    movie: id        => `https://vidzee.wtf/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidzee.wtf/tv/${id}/${s}/${e}` },
-
-  { name: 'VidRock',      icon: 'fas fa-guitar',            id: 'vidrock',
-    movie: id        => `https://vidrock.net/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidrock.net/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'VidFast',      icon: 'fas fa-gauge-high',        id: 'vidfast',
-    movie: id        => `https://vidfast.co/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidfast.co/tv/${id}/${s}/${e}` },
-
-  { name: 'VidNest',      icon: 'fas fa-egg',               id: 'vidnest',
-    movie: id        => `https://vidnest.io/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidnest.io/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'VidUp',        icon: 'fas fa-arrow-up-from-bracket', id: 'vidup',
-    movie: id        => `https://vidup.me/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidup.me/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'SuperFlix',    icon: 'fas fa-fire-flame-curved', id: 'superflix',
-    movie: id        => `https://superflix.xyz/embed/${id}`,
-    tv:   (id,s,e)   => `https://superflix.xyz/embed/${id}/${s}/${e}` },
-
-  { name: '111Movies',    icon: 'fas fa-infinity',          id: '111movies',
-    movie: id        => `https://111movies.me/embed/${id}`,
-    tv:   (id,s,e)   => `https://111movies.me/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'PrimeWire',    icon: 'fas fa-bolt-lightning',    id: 'primewire',
-    movie: id        => `https://www.primewire.tf/embed/movie?id=${id}`,
-    tv:   (id,s,e)   => `https://www.primewire.tf/embed/tv?id=${id}&season=${s}&episode=${e}` },
-
-  // ── Tier 4 – Additional Servers ─────────────────────────────────────────
-  { name: 'VidAPI',       icon: 'fas fa-satellite',         id: 'vidapi',
-    movie: id        => `https://vidapi.xyz/embed/movie?id=${id}`,
-    tv:   (id,s,e)   => `https://vidapi.xyz/embed/tv?id=${id}&season=${s}&episode=${e}` },
-
-  { name: 'VidKing',      icon: 'fas fa-crown',             id: 'vidking',
-    movie: id        => `https://vidking.net/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://vidking.net/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'NontonGo',     icon: 'fas fa-globe-asia',        id: 'nontongo',
-    movie: id        => `https://www.nontongo.win/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://www.nontongo.win/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'FlixEmbed',    icon: 'fas fa-photo-film',        id: 'flixembed',
-    movie: id        => `https://flixembed.net/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://flixembed.net/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'EmbedCast',    icon: 'fas fa-broadcast-tower',   id: 'embedcast',
-    movie: id        => `https://embedcast.net/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://embedcast.net/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'CinemaOS',     icon: 'fas fa-ticket',            id: 'cinemaos',
-    movie: id        => `https://cinemaosgood.com/api/e/movie?id=${id}`,
-    tv:   (id,s,e)   => `https://cinemaosgood.com/api/e/tv?id=${id}&s=${s}&e=${e}` },
-
-  { name: 'Gomo',         icon: 'fas fa-circle',            id: 'gomo',
-    movie: id        => `https://gomo.to/movie/${id}`,
-    tv:   (id,s,e)   => `https://gomo.to/tv/${id}/${s}/${e}` },
-
-  { name: 'Soapy',        icon: 'fas fa-soap',              id: 'soapy',
-    movie: id        => `https://soapy.to/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://soapy.to/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'VidSrc.nl',    icon: 'fas fa-signal',            id: 'vidsrcnl',
-    movie: id        => `https://player.vidsrc.nl/embed/movie/${id}`,
-    tv:   (id,s,e)   => `https://player.vidsrc.nl/embed/tv/${id}/${s}/${e}` },
-
-  { name: 'EmbedSito',    icon: 'fas fa-code',              id: 'embedsito',
-    movie: id        => `https://embedsito.com/v/${id}`,
-    tv:   (id,s,e)   => `https://embedsito.com/v/${id}/${s}/${e}` },
-
-  { name: 'FreMbed',      icon: 'fas fa-unlock',            id: 'frembed',
-    movie: id        => `https://frembed.pro/api/film.php?id=${id}`,
-    tv:   (id,s,e)   => `https://frembed.pro/api/serie.php?id=${id}&sa=${s}&epi=${e}` },
-
-  { name: 'DbGo',         icon: 'fas fa-database',          id: 'dbgo',
-    movie: id        => `https://dbgo.fun/imdb.php?id=${id}`,
-    tv:   (id,s,e)   => `https://dbgo.fun/tmdb.php?id=${id}&s=${s}&ep=${e}` },
-
-  { name: 'W2W',          icon: 'fas fa-w',                 id: 'w2watch',
-    movie: id        => `https://www.w2watch.to/embed/tmdb/movie-${id}`,
-    tv:   (id,s,e)   => `https://www.w2watch.to/embed/tmdb/tv-${id}-${s}-${e}` },
+  { name: 'VidSrc', icon: 'fas fa-play', id: 'vidsrc',
+    movie: id => `https://vidsrc.to/embed/movie/${id}`,
+    tv: (id,s,e) => `https://vidsrc.to/embed/tv/${id}/${s}/${e}` },
+  { name: 'VidLink', icon: 'fas fa-link', id: 'vidlink',
+    movie: id => `https://vidlink.pro/movie/${id}?autoplay=true`,
+    tv: (id,s,e) => `https://vidlink.pro/tv/${id}/${s}/${e}?autoplay=true` },
+  { name: '2Embed', icon: 'fas fa-film', id: '2embed',
+    movie: id => `https://www.2embed.cc/embed/${id}`,
+    tv: (id,s,e) => `https://www.2embed.cc/embedtv/${id}&s=${s}&e=${e}` },
+  { name: 'VidAPI', icon: 'fas fa-satellite', id: 'vidapi',
+    movie: id => `https://vidapi.xyz/embed/movie?id=${id}`,
+    tv: (id,s,e) => `https://vidapi.xyz/embed/tv?id=${id}&season=${s}&episode=${e}` },
+  { name: 'VidKing', icon: 'fas fa-crown', id: 'vidking',
+    movie: id => `https://vidking.net/embed/movie/${id}`,
+    tv: (id,s,e) => `https://vidking.net/embed/tv/${id}/${s}/${e}` },
 ];
 
 // =========== INIT ===========
